@@ -28,3 +28,15 @@ use Mix.Config
 # here (which is why it is important to import them last).
 #
 #     import_config "#{Mix.env}.exs"
+config :hobot_publisher_twitter_streaming,
+  oauth: [
+    consumer_key: System.get_env("TWITTER_STREAMING_CONSUMER_KEY"),
+    consumer_secret: System.get_env("TWITTER_STREAMING_CONSUMER_SECRET"),
+    access_token: System.get_env("TWITTER_STREAMING_ACCESS_TOKEN"),
+    access_token_secret: System.get_env("TWITTER_STREAMING_ACCESS_SECRET")
+  ],
+  param: [
+    follow: System.get_env("TWITTER_STREAMING_FOLLOW"),
+    track: System.get_env("TWITTER_STREAMING_TRACK")
+  ],
+  topic: System.get_env("TWITTER_STREAMING_TOPIC") || "twitter_streaming"

@@ -12,6 +12,7 @@ defmodule Hobot.Publisher.TwitterStreaming.Application do
     children = [
       # Starts a worker by calling: Hobot.Publisher.TwitterStreaming.Worker.start_link(arg1, arg2, arg3)
       # worker(Hobot.Publisher.TwitterStreaming.Worker, [arg1, arg2, arg3]),
+      worker(Task, [Hobot.Publisher.TwitterStreaming, :publish, []])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html

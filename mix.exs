@@ -33,7 +33,9 @@ defmodule Hobot.Publisher.TwitterStreaming.Mixfile do
   defp deps do
     [{:ex_doc, "~> 0.14", only: [:dev, :test], runtime: false},
      {:credo, "~> 0.7", only: [:dev, :test], runtime: false},
-     {:dialyxir, "~> 0.5", only: [:dev, :test], runtime: false}]
+     {:dialyxir, "~> 0.5", only: [:dev, :test], runtime: false},
+     {:hobot, "~> 0.1"},
+     {:extwitter, "~> 0.8"}]
   end
 
   defp description do
