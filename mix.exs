@@ -30,6 +30,7 @@ defmodule Hobot.Publisher.TwitterStreaming.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [{:ex_doc, "~> 0.14", only: [:dev, :test], runtime: false},
-     {:credo, "~> 0.7", only: [:dev, :test], runtime: false}]
+     {:credo, "~> 0.7", only: [:dev, :test], runtime: false},
+     {:dialyxir, "~> 0.5", only: [:dev, :test], runtime: false}]
   end
 end
