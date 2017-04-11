@@ -1,0 +1,32 @@
+language: elixir
+sudo: false
+otp_release:
+  - 19.3
+elixir:
+  - 1.4.2
+env:
+  global:
+    - HEX_USERNAME=niku
+    # Follow other language's environment
+    # e.g.) `RACK_ENV=test` has been setted as Default Environment Variables
+    # https://docs.travis-ci.com/user/environment-variables/#Default-Environment-Variables
+    - MIX_ENV=test
+cache:
+  directories:
+    - _build
+    - deps
+script:
+  - mix credo --strict
+  - mix dialyzer --halt-exit-status
+  - mix test
+deploy:
+   provider: script
+   script: >-
+     mix deps.get &&
+     mix hex.config username "$HEX_USERNAME" &&
+     (mix hex.config encrypted_key "$HEX_ENCRYPTED_KEY" > /dev/null 2>&1) &&
+     (echo "$HEX_PASSPHRASE"\\nY | mix hex.publish) &&
+     mix clean &&
+     mix deps.clean --all
+   on:
+    tags: true

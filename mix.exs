@@ -7,7 +7,9 @@ defmodule Hobot.Publisher.TwitterStreaming.Mixfile do
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps()]
+     deps: deps(),
+     description: description(),
+     package: package()]
   end
 
   # Configuration for the OTP application
@@ -32,5 +34,15 @@ defmodule Hobot.Publisher.TwitterStreaming.Mixfile do
     [{:ex_doc, "~> 0.14", only: [:dev, :test], runtime: false},
      {:credo, "~> 0.7", only: [:dev, :test], runtime: false},
      {:dialyxir, "~> 0.5", only: [:dev, :test], runtime: false}]
+  end
+
+  defp description do
+    "Publishes tweets to Hobot's topic."
+  end
+
+  defp package do
+    [maintainers: ["niku"],
+     licenses: ["MIT"],
+     links: %{"GitHub" => "https://github.com/niku/hobot_publisher_twitter_streaming"}]
   end
 end
