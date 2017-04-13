@@ -10,11 +10,11 @@ use Mix.Config
 
 # You can configure for your application as:
 #
-#     config :hobot_publisher_twitter_streaming, key: :value
+#     config :hobot_in_twitter_streaming, key: :value
 #
 # And access this configuration in your application as:
 #
-#     Application.get_env(:hobot_publisher_twitter_streaming, :key)
+#     Application.get_env(:hobot_in_twitter_streaming, :key)
 #
 # Or configure a 3rd-party app:
 #
@@ -28,7 +28,7 @@ use Mix.Config
 # here (which is why it is important to import them last).
 #
 #     import_config "#{Mix.env}.exs"
-config :hobot_publisher_twitter_streaming,
+config :hobot_in_twitter_streaming,
   oauth: [
     consumer_key: System.get_env("TWITTER_STREAMING_CONSUMER_KEY"),
     consumer_secret: System.get_env("TWITTER_STREAMING_CONSUMER_SECRET"),

@@ -1,8 +1,8 @@
-defmodule Hobot.Publisher.TwitterStreaming.Mixfile do
+defmodule Hobot.In.TwitterStreaming.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :hobot_publisher_twitter_streaming,
+    [app: :hobot_in_twitter_streaming,
      version: "0.1.0",
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
@@ -18,7 +18,7 @@ defmodule Hobot.Publisher.TwitterStreaming.Mixfile do
   def application do
     # Specify extra applications you'll use from Erlang/Elixir
     [extra_applications: [:logger],
-     mod: {Hobot.Publisher.TwitterStreaming.Application, []}]
+     mod: {Hobot.In.TwitterStreaming.Application, []}]
   end
 
   # Dependencies can be Hex packages:
@@ -45,6 +45,6 @@ defmodule Hobot.Publisher.TwitterStreaming.Mixfile do
   defp package do
     [maintainers: ["niku"],
      licenses: ["MIT"],
-     links: %{"GitHub" => "https://github.com/niku/hobot_publisher_twitter_streaming"}]
+     links: %{"GitHub" => "https://github.com/niku/hobot_in_twitter_streaming"}]
   end
 end

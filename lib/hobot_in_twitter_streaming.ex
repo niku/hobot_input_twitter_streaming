@@ -1,6 +1,6 @@
-defmodule Hobot.Publisher.TwitterStreaming do
+defmodule Hobot.In.TwitterStreaming do
   @moduledoc """
-  Documentation for Hobot.Publisher.TwitterStreaming.
+  Documentation for Hobot.In.TwitterStreaming.
   """
 
   @doc"""
@@ -8,11 +8,11 @@ defmodule Hobot.Publisher.TwitterStreaming do
   """
   @spec publish() :: no_return
   def publish do
-    oauth = Application.fetch_env!(:hobot_publisher_twitter_streaming, :oauth)
+    oauth = Application.fetch_env!(:hobot_in_twitter_streaming, :oauth)
     param =
-      Application.fetch_env!(:hobot_publisher_twitter_streaming, :param)
+      Application.fetch_env!(:hobot_in_twitter_streaming, :param)
       |> reject_blank_param
-    topic = Application.fetch_env!(:hobot_publisher_twitter_streaming, :topic)
+    topic = Application.fetch_env!(:hobot_in_twitter_streaming, :topic)
 
     ExTwitter.configure(:process, oauth)
     for tweet <- ExTwitter.stream_filter(param, :infinity), do: Hobot.publish(topic, tweet)
@@ -25,13 +25,13 @@ defmodule Hobot.Publisher.TwitterStreaming do
 
   ## Examples
 
-      iex> Hobot.Publisher.TwitterStreaming.reject_blank_param([follow: "somepeople", track: ""])
+      iex> Hobot.In.TwitterStreaming.reject_blank_param([follow: "somepeople", track: ""])
       [follow: "somepeople"]
 
-      iex> Hobot.Publisher.TwitterStreaming.reject_blank_param([follow: nil, track: "coolthing"])
+      iex> Hobot.In.TwitterStreaming.reject_blank_param([follow: nil, track: "coolthing"])
       [track: "coolthing"]
 
-      iex> Hobot.Publisher.TwitterStreaming.reject_blank_param([follow: "somepeople", track: "coolthing"])
+      iex> Hobot.In.TwitterStreaming.reject_blank_param([follow: "somepeople", track: "coolthing"])
       [follow: "somepeople", track: "coolthing"]
 
   """
