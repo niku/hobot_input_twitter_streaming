@@ -1,6 +1,6 @@
-defmodule Hobot.In.TwitterStreaming do
+defmodule Hobot.Input.TwitterStreaming do
   @moduledoc """
-  Documentation for Hobot.In.TwitterStreaming.
+  Documentation for Hobot.Input.TwitterStreaming.
   """
 
   use GenServer
@@ -32,13 +32,13 @@ defmodule Hobot.In.TwitterStreaming do
 
   ## Examples
 
-      iex> Hobot.In.TwitterStreaming.reject_blank_param([follow: "somepeople", track: ""])
+      iex> Hobot.Input.TwitterStreaming.reject_blank_param([follow: "somepeople", track: ""])
       [follow: "somepeople"]
 
-      iex> Hobot.In.TwitterStreaming.reject_blank_param([follow: nil, track: "coolthing"])
+      iex> Hobot.Input.TwitterStreaming.reject_blank_param([follow: nil, track: "coolthing"])
       [track: "coolthing"]
 
-      iex> Hobot.In.TwitterStreaming.reject_blank_param([follow: "somepeople", track: "coolthing"])
+      iex> Hobot.Input.TwitterStreaming.reject_blank_param([follow: "somepeople", track: "coolthing"])
       [follow: "somepeople", track: "coolthing"]
 
   """

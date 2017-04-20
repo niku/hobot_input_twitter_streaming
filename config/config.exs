@@ -10,11 +10,11 @@ use Mix.Config
 
 # You can configure for your application as:
 #
-#     config :hobot_in_twitter_streaming, key: :value
+#     config :hobot_input_twitter_streaming, key: :value
 #
 # And access this configuration in your application as:
 #
-#     Application.get_env(:hobot_in_twitter_streaming, :key)
+#     Application.get_env(:hobot_input_twitter_streaming, :key)
 #
 # Or configure a 3rd-party app:
 #
